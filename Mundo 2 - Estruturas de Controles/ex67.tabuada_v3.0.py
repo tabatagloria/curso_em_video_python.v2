@@ -7,6 +7,7 @@ mult = 0
 while True:
     n = int(input('Digite um número inteiro, sendo número negativo para parar: '))
     if n < 0:
+        print('Fim do programa!')
         break
     else:
         while count <= 10:

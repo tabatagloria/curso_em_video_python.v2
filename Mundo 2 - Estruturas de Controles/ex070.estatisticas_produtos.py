@@ -9,20 +9,20 @@ count = 0
 print('===== Cadastro de Produtos ======')
 while True:
     name = input('Nome do produto: ')
-    price = float(input('Preço do produto: '))
-    question = input('Deseja continuar: S/N ').upper().strip()
-    total = total + price
+    price = float(input('Preço do produto: R$'))
     count += 1
-    if price > 1000.00:
-        expensive += 1
-    if count == 1:
-        c = price
-    else:
-        if price <= c:
-            cheap = name          
+    total = total + price
+    question = ' '
+    while question not in 'SN':
+        question = input('Deseja continuar: S/N ').upper().strip()[0]
     if question == 'N':
         break
-print(f'O total da compra foi R${total:.2f}, sendo que {expensive} protuto(s) custaram mais de R$1000,00 e {cheap} é o nome do produto mais barato.')
+    if price > 1000.00:
+        expensive += 1
+    if count == 1 or price < c:
+        c = price
+        cheap = name      
+print(f'O total da compra foi R${total:.2f}, sendo que {expensive} produto(s) custaram mais de R$1000,00 e {cheap} é o nome do produto mais barato.')
     
 
 

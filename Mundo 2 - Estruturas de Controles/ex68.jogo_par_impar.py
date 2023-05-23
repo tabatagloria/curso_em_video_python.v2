@@ -2,21 +2,24 @@
 
 from random import randint
 print('====== PAR OU ÍMPAR =====')
-num_pc = 0
-num_user = 0
+
 result = 0
 count = 0
 while True:
     num_pc = randint(0, 10)
-    choise = input('Digite P para par ou I para impar: ').upper().strip()
     num_user = int(input('Digite um número inteiro de 0 a 10: '))
     result = num_pc + num_user
-    if choise == 'P' and result % 2 == 0: 
+    choice = ' '
+    while choice not in 'PI':
+        choice = str(input('Digite P para par ou I para impar: ')).upper().strip()[0]
+    print('Deu PAR' if result % 2 == 0 else 'Deu ÍMPAR')
+    if choice == 'P' and result % 2 == 0: 
         count += 1
-        print(f'Você ganhou! Você escolheu o {num_user} e o computador {num_pc}.')
-    elif choise == 'I' and result % 2 != 0:
+        print(f'Você ganhou! Total {result}, você escolheu o {num_user} e o computador {num_pc}.')
+    elif choice == 'I' and result % 2 != 0:
         count += 1
-        print(f'Você ganhou! Você escolheu o {num_user} e o computador {num_pc}.')
+        print(f'Você ganhou! Total {result}, você escolheu o {num_user} e o computador {num_pc}.')
     else:
+        print(f'Você perdeu! Total {result}, você escolheu o {num_user} e o computador {num_pc}.')
         break
 print(f'Fim do Jogo! Você teve o total de {count} vitória(s).')

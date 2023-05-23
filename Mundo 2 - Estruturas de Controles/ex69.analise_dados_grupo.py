@@ -6,8 +6,12 @@ women = 0
 print('====== Cadastro de Pessoas ======')
 while True:
     age = int(input('Idade: '))
-    gender = input('Sexo: F/M ').upper().strip()
-    question = input('Deseja continuar cadastrando: S/N ').upper().strip()
+    gender = ' '
+    while gender not in 'FM':
+        gender = input('Sexo: F/M ').upper().strip()[0]
+    question = ' '
+    while question not in 'SN':
+        question = input('Deseja continuar cadastrando: S/N ').upper().strip()[0]
     if age >= 18:
         total += 1
     if gender == 'M':
@@ -16,4 +20,4 @@ while True:
         women += 1
     if question == 'N':
         break
-print(f'Foram cadastrados {total} pessoas maior(es) de 18 anos, {men} homen(s) cadastrados e {women} mulher(es) com menos de 20 anos')
+print(f'Foram cadastrados {total} pessoas maior(es) de 18 anos, {men} homens cadastrados e {women} mulher(es) com menos de 20 anos')
